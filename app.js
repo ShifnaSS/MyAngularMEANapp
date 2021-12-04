@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
+const port = process.env.PORT || 3300;
 let jwt =require('jsonwebtoken');
 const bodyparser = require('body-parser');
 var app = new express();
@@ -212,6 +213,4 @@ app.put("/api/update",verifyToken,(req,res)=>{
     res.sendFile(path.join(__dirname + '/dist/Frondend/index.html'));
    });
 
-app.listen(3300,function(){
-    console.log("server ready at port number 3300")
-});
+app.listen(port,()=>{console.log("Server Ready at" +port)});
