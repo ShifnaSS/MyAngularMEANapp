@@ -171,6 +171,23 @@ app.get("/api/getbooks/:id",verifyToken, (req, res) => {
           res.send(book);
       });
 })
+app.get("/api/oneauthor/:id",verifyToken, (req, res) => {
+  
+    const id = req.params.id;
+      author.findOne({"_id":id})
+      .then((author)=>{
+          res.send(author);
+      });
+})
+app.get("/api/onebook/:id",verifyToken, (req, res) => {
+  
+    const id = req.params.id;
+      book.findOne({"_id":id})
+      .then((book)=>{
+          res.send(book);
+      });
+})
+
   
 app.put("/api/update",verifyToken,(req,res)=>{
     console.log(req.body)
